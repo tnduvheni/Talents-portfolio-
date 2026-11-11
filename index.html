@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#2750E6">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232750E6'/%3E%3Ctext x='32' y='43' font-family='Arial' font-size='30' font-weight='800' text-anchor='middle' fill='white'%3ETN%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1B7448">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231B7448'/%3E%3Ctext x='32' y='43' font-family='Arial' font-size='30' font-weight='800' text-anchor='middle' fill='white'%3ETN%3C/text%3E%3C/svg%3E">
 <title>Talent Nduvheni Portfolio</title>
 <meta name="description" content="Talent Nduvheni is a Software Developer and Qualified IT Technician. Java, Spring Boot, Python and data engineering.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,24 +13,24 @@
 <style>
 /* Layout: one left-aligned 1120px column. Hero is headline + profile.json card, then work (Penned featured, three supporting), skills as rows, work/education, contact. */
 :root{
-  --bg:#EDF1F6; --surface:#F8FAFC; --ink:#0F1B2D; --muted:#4A586C; --line:#D2DAE5;
-  --accent:#2750E6; --on-accent:#FFFFFF; --soft:#E0E8FB;
-  --feature:#14234A; --on-feature:#EAF0FF; --feature-muted:#A9B8E0;
-  --json-key:#4A586C; --json-str:#0F1B2D; --json-hl:#2750E6;
+  --bg:#EEF3EE; --surface:#F8FBF8; --ink:#0F2018; --muted:#4B5E52; --line:#D3DFD5;
+  --accent:#1B7448; --on-accent:#FFFFFF; --soft:#DCEBDF;
+  --feature:#0F3D2A; --on-feature:#E6F5EC; --feature-muted:#A9CDB8;
+  --json-key:#4B5E52; --json-str:#0F2018; --json-hl:#1B7448;
   --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
   --text:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0A111B; --surface:#111B29; --ink:#E7EEF7; --muted:#9BAABD; --line:#22324A;
-  --accent:#86A2FF; --on-accent:#0A111B; --soft:#18274A;
-  --feature:#16264F; --on-feature:#EAF0FF; --feature-muted:#A9B8E0;
-  --json-key:#9BAABD; --json-str:#E7EEF7; --json-hl:#86A2FF; color-scheme:dark}}
+  --bg:#09130E; --surface:#101C15; --ink:#E5F0E8; --muted:#98AE9F; --line:#20352A;
+  --accent:#5FD39A; --on-accent:#08130D; --soft:#15291F;
+  --feature:#123826; --on-feature:#E6F5EC; --feature-muted:#A9CDB8;
+  --json-key:#98AE9F; --json-str:#E5F0E8; --json-hl:#5FD39A; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0A111B; --surface:#111B29; --ink:#E7EEF7; --muted:#9BAABD; --line:#22324A;
-  --accent:#86A2FF; --on-accent:#0A111B; --soft:#18274A;
-  --feature:#16264F; --on-feature:#EAF0FF; --feature-muted:#A9B8E0;
-  --json-key:#9BAABD; --json-str:#E7EEF7; --json-hl:#86A2FF; color-scheme:dark}
+  --bg:#09130E; --surface:#101C15; --ink:#E5F0E8; --muted:#98AE9F; --line:#20352A;
+  --accent:#5FD39A; --on-accent:#08130D; --soft:#15291F;
+  --feature:#123826; --on-feature:#E6F5EC; --feature-muted:#A9CDB8;
+  --json-key:#98AE9F; --json-str:#E5F0E8; --json-hl:#5FD39A; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -61,7 +61,7 @@ nav{height:68px;display:flex;align-items:center;gap:28px}
 .btn.solid:hover{filter:brightness(1.08)}
 .btn.line{background:transparent;border-color:var(--line);color:var(--ink)}
 .btn.line:hover{border-color:var(--accent)}
-.btn.light{background:#fff;color:#14234A}
+.btn.light{background:#fff;color:#0F3D2A}
 .btn.ghost{border-color:#ffffff40;color:var(--on-feature)}
 .btn.ghost:hover{border-color:#ffffffa0}
 
@@ -131,13 +131,55 @@ section.block{padding-block:clamp(48px,7vw,88px)}
 .copied{font-size:.85rem;color:var(--muted);min-height:1.4em;margin-top:10px}
 footer{padding-block:32px 48px;color:var(--muted);font-size:.88rem}
 
+/* motion: one load sequence in the hero, scroll progress, project ticker */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-grid>div>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero-grid>div>:nth-child(2){animation-delay:.08s}.hero-grid>div>:nth-child(3){animation-delay:.16s}.hero-grid>div>:nth-child(4){animation-delay:.24s}
+.ln{display:block;animation:rise .45s ease both;animation-delay:calc(.3s + var(--i)*45ms)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
+
+.ticker{border-block:1px solid var(--line);background:var(--surface)}
+.ticker-in{display:flex;align-items:center;gap:16px}
+.marquee{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.track{display:flex;width:max-content;animation:scroll 60s linear infinite}
+.track.paused,.track:hover,.marquee:focus-within .track{animation-play-state:paused}
+.set{display:flex;gap:12px;padding:14px 12px 14px 0}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.chip{display:flex;align-items:baseline;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:99px;background:var(--bg);white-space:nowrap;font-weight:600}
+.chip:hover{border-color:var(--accent)}
+.chip small{font:400 .75rem var(--mono);color:var(--muted)}
+.pause{flex:none;font:500 .82rem var(--text);padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;min-width:84px}
+.pause:hover{border-color:var(--accent)}
+
+/* project index */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.fbtn{font:500 .88rem var(--text);padding:8px 16px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.fbtn:hover{border-color:var(--accent)}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.index{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,3vw,40px);align-items:start}
+.plist{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.ptab{display:flex;justify-content:space-between;align-items:baseline;gap:14px;text-align:left;width:100%;padding:16px 14px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.ptab .n{font:700 1.12rem/1.2 var(--display);letter-spacing:-.015em}
+.ptab .k{color:var(--muted);font-size:.84rem;text-align:right}
+.ptab:hover,.ptab[aria-selected="true"]{background:var(--soft)}
+.ptab[aria-selected="true"] .n{color:var(--accent)}
+.detail{position:sticky;top:92px;padding:clamp(22px,3vw,32px);min-height:280px}
+.detail.swap{animation:rise .35s ease both}
+.detail h3{font-size:1.7rem;letter-spacing:-.03em;line-height:1.1}
+.detail .kind{color:var(--muted);margin:6px 0 16px}
+.detail p.sum{max-width:56ch}
+.detail .tags{margin-top:18px}
+.detail .btn{margin-top:22px}
+.count{font:500 .85rem var(--mono);color:var(--muted)}
+
 @media (max-width:900px){
   .hero-grid,.feature,.contact{grid-template-columns:minmax(0,1fr)}
-  .trio,.two{grid-template-columns:minmax(0,1fr)}
+  .trio,.two,.index{grid-template-columns:minmax(0,1fr)}
+  .detail{position:static;order:-1;min-height:0}
   .row{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:700px){.links{display:none}.json pre{font-size:.72rem;padding:16px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.set[aria-hidden]{display:none}}
 </style>
 
 </head>
@@ -148,12 +190,13 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.88rem}
   <nav class="wrap" aria-label="Main">
     <a class="logo" href="#top" aria-label="Talent Nduvheni, top of page">TN<i>.</i></a>
     <div class="links" id="links">
-      <a href="#work">Work</a><a href="#skills">Skills</a><a href="#background">Background</a><a href="#contact">Contact</a>
+      <a href="#work">Featured</a><a href="#all-projects">All projects</a><a href="#skills">Skills</a><a href="#background">Background</a><a href="#contact">Contact</a>
     </div>
     <button class="iconbtn" id="theme" type="button" aria-label="Switch colour theme">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17" /><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
     </button>
   </nav>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 </header>
 
 <main id="main">
@@ -170,23 +213,17 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.88rem}
     </div>
     <aside class="card json" aria-label="Profile summary">
       <div class="json-bar"><span>profile.json</span><span>South Africa</span></div>
-<pre><code>{
-  <span class="k">"name"</span>: <span class="h">"Talent Nduvheni"</span>,
-  <span class="k">"role"</span>: "Software Developer",
-  <span class="k">"also"</span>: "Qualified IT Technician",
-  <span class="k">"languages"</span>: ["Java", "Python",
-    "JavaScript", "SQL"],
-  <span class="k">"backend"</span>: ["Spring Boot",
-    "REST APIs", "JWT"],
-  <span class="k">"data"</span>: ["Apache Beam", "pandas", "ETL"],
-  <span class="k">"now"</span>: "Suvwey Enterprise",
-  <span class="k">"training"</span>: "WeThinkCode_",
-  <span class="k">"openTo"</span>: <span class="h">["junior dev", "backend",
-    "graduate", "IT technical"]</span>
-}</code></pre>
+<pre><code><span class="ln" style="--i:0">{</span><span class="ln" style="--i:1">  <span class="k">"name"</span>: <span class="h">"Talent Nduvheni"</span>,</span><span class="ln" style="--i:2">  <span class="k">"role"</span>: "Software Developer",</span><span class="ln" style="--i:3">  <span class="k">"also"</span>: "Qualified IT Technician",</span><span class="ln" style="--i:4">  <span class="k">"languages"</span>: ["Java", "Python",</span><span class="ln" style="--i:5">    "JavaScript", "SQL"],</span><span class="ln" style="--i:6">  <span class="k">"backend"</span>: ["Spring Boot",</span><span class="ln" style="--i:7">    "REST APIs", "JWT"],</span><span class="ln" style="--i:8">  <span class="k">"data"</span>: ["Apache Beam", "pandas", "ETL"],</span><span class="ln" style="--i:9">  <span class="k">"now"</span>: "Suvwey Enterprise",</span><span class="ln" style="--i:10">  <span class="k">"training"</span>: "WeThinkCode_",</span><span class="ln" style="--i:11">  <span class="k">"openTo"</span>: <span class="h">["junior dev", "backend",</span><span class="ln" style="--i:12">    "graduate", "IT technical"]</span></span><span class="ln" style="--i:13">}</span></code></pre>
     </aside>
   </div>
 </section>
+
+<div class="ticker" aria-label="Projects I have built">
+  <div class="wrap ticker-in">
+    <div class="marquee"><div class="track" id="track"><div class="set" id="set1"></div><div class="set" id="set2" aria-hidden="true"></div></div></div>
+    <button class="pause" id="pause" type="button" aria-pressed="false">Pause</button>
+  </div>
+</div>
 
 <section class="block" id="work">
   <div class="wrap">
@@ -225,6 +262,17 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.88rem}
         <p>Practical data processing with Python, Apache Beam and ETL concepts, including transforming structured data.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">Apache Beam</span><span class="tag">pandas</span></div>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="all-projects">
+  <div class="wrap">
+    <div class="head"><h2>Every project</h2><p>Everything I've built so far, from client websites to team projects at WeThinkCode_. <span class="count" id="count"></span></p></div>
+    <div class="filters" id="filters" role="group" aria-label="Filter projects by language"></div>
+    <div class="index">
+      <div class="plist" id="plist" role="tablist" aria-orientation="vertical" aria-label="Projects"><noscript><p>Turn on JavaScript to browse every project.</p></noscript></div>
+      <article class="card detail" id="detail" role="tabpanel" aria-live="polite"></article>
     </div>
   </div>
 </section>
@@ -301,6 +349,67 @@ footer{padding-block:32px 48px;color:var(--muted);font-size:.88rem}
     try{localStorage.setItem('tn-theme',next);}catch(e){}
   });
   document.getElementById('year').textContent=new Date().getFullYear();
+
+  /* project data: one source for the ticker and the index */
+  var PROJECTS=[
+   {id:'penned',name:'Penned',kind:'Messaging and marketplace app',stack:['JavaScript','React','Payments'],langs:['JavaScript'],url:'https://penned-download.tnduvheni1.workers.dev/',cta:'Visit Penned',sum:'A messaging and marketplace application with user-to-user messaging, payment-related integrations and an evolving set of platform features.'},
+   {id:'relay',name:'Relay',kind:'Mobile chat and payments app',stack:['React Native','Expo','TypeScript','Spring Boot','STOMP'],langs:['JavaScript','Java'],sum:'A mobile app with a chat inbox, friends and payments, built from design mockups. Backed by a Spring Boot API with real-time messaging over WebSocket, an offline message queue and push notifications.'},
+   {id:'orgchat',name:'OrgChat backend',kind:'Chat and employee management API',stack:['Spring Boot','Spring Security','JWT','JPA','MySQL','WebSocket'],langs:['Java'],sum:'A Spring Boot backend for chat and employee management, secured with JWT and backed by MySQL. Includes a logbook feature exposed through REST endpoints.'},
+   {id:'airlog',name:'AirLog',kind:'Flight-hour tracking app',stack:['Application development','Data management'],langs:[],sum:'A flight-hour tracking application that helps users record and manage aviation flight-time information.'},
+   {id:'hotel',name:'Hotel Booking System',kind:'Booking software for hotel staff',stack:['Java','Spring Boot','MySQL'],langs:['Java'],sum:'Team project for internal hotel use. The receptionist books guests and the owner tracks bookings, replacing paper records. The Spring Boot backend models rooms, clients and bookings.'},
+   {id:'robot',name:'Robot World',kind:'Client-server simulation, WeThinkCode_',stack:['Java','Maven','Client-server','Command pattern'],langs:['Java'],sum:'A team project at WeThinkCode_: a robot simulation with a multi-client server and a GUI client. Includes robot subclasses, collision handling, UML and a class diagram of the full architecture.'},
+   {id:'arq',name:'ARQ Arquitectura website',kind:'Website for an architecture firm',stack:['HTML','CSS','JavaScript','GSAP'],langs:['JavaScript'],sum:'A static website built from scratch for an architecture firm, with a dark design system, GSAP animations, smooth scrolling and a 12-column masonry portfolio grid.'},
+   {id:'data',name:'Data engineering exercises',kind:'ETL and data processing',stack:['Python','Apache Beam','pandas','ETL'],langs:['Python'],sum:'Practical data processing with Python, Apache Beam and ETL concepts, including transforming structured data.'},
+   {id:'oop',name:'OOP assessment projects',kind:'Coursework at WeThinkCode_',stack:['Java','JUnit 5','Generics'],langs:['Java'],sum:'A series of Java projects of growing complexity, from a tournament manager to a food delivery platform with generics, tested with JUnit 5.'}
+  ];
+  var FILTERS=['All','Java','JavaScript','Python'],active='All',selected='penned';
+
+  function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
+
+  /* ticker */
+  function chips(target){PROJECTS.forEach(function(p){
+    var a=el('a','chip');a.href='#all-projects';a.setAttribute('data-id',p.id);
+    if(target.hasAttribute('aria-hidden'))a.tabIndex=-1;
+    a.appendChild(el('span',null,p.name));a.appendChild(el('small',null,p.stack.slice(0,2).join(' / ')));target.appendChild(a);});}
+  var set1=document.getElementById('set1'),set2=document.getElementById('set2');chips(set1);chips(set2);
+  document.getElementById('track').addEventListener('click',function(e){var a=e.target.closest('a[data-id]');if(!a)return;active='All';selected=a.getAttribute('data-id');render();});
+  var pauseBtn=document.getElementById('pause'),track=document.getElementById('track');
+  pauseBtn.addEventListener('click',function(){var p=track.classList.toggle('paused');pauseBtn.setAttribute('aria-pressed',String(p));pauseBtn.textContent=p?'Play':'Pause';});
+
+  /* index */
+  var plist=document.getElementById('plist'),detail=document.getElementById('detail'),filtersEl=document.getElementById('filters'),count=document.getElementById('count');
+  function visible(){return PROJECTS.filter(function(p){return active==='All'||p.langs.indexOf(active)>-1;});}
+  function renderFilters(){filtersEl.textContent='';FILTERS.forEach(function(f){
+    var n=f==='All'?PROJECTS.length:PROJECTS.filter(function(p){return p.langs.indexOf(f)>-1;}).length;
+    var b=el('button','fbtn',f+' ('+n+')');b.type='button';b.setAttribute('aria-pressed',String(f===active));
+    b.addEventListener('click',function(){active=f;var v=visible();if(!v.some(function(p){return p.id===selected;}))selected=v[0].id;render();});filtersEl.appendChild(b);});}
+  function renderList(){
+    var ns=plist.querySelector('noscript');plist.textContent='';if(ns)plist.appendChild(ns);
+    visible().forEach(function(p){
+      var b=el('button','ptab');b.type='button';b.id='tab-'+p.id;b.setAttribute('role','tab');b.setAttribute('aria-selected',String(p.id===selected));b.setAttribute('aria-controls','detail');b.tabIndex=p.id===selected?0:-1;b.setAttribute('data-id',p.id);
+      b.appendChild(el('span','n',p.name));b.appendChild(el('span','k',p.kind));plist.appendChild(b);});}
+  function renderDetail(swap){
+    var p=PROJECTS.filter(function(x){return x.id===selected;})[0];if(!p)return;
+    detail.setAttribute('aria-labelledby','tab-'+p.id);detail.textContent='';
+    detail.appendChild(el('h3',null,p.name));detail.appendChild(el('p','kind',p.kind));detail.appendChild(el('p','sum',p.sum));
+    var tg=el('div','tags');p.stack.forEach(function(t){tg.appendChild(el('span','tag',t));});detail.appendChild(tg);
+    if(p.url){var a=el('a','btn solid',p.cta);a.href=p.url;a.target='_blank';a.rel='noopener';detail.appendChild(a);}
+    if(swap){detail.classList.remove('swap');void detail.offsetWidth;detail.classList.add('swap');}}
+  function render(swap){count.textContent=visible().length+' of '+PROJECTS.length+' shown';renderFilters();renderList();renderDetail(swap);}
+  plist.addEventListener('click',function(e){var b=e.target.closest('.ptab');if(!b)return;selected=b.getAttribute('data-id');render(true);
+    var nb=document.getElementById('tab-'+selected);if(nb)nb.focus();
+    if(matchMedia('(max-width:900px)').matches)detail.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});});
+  plist.addEventListener('keydown',function(e){
+    var v=visible(),i=v.map(function(p){return p.id;}).indexOf(selected),n=i;
+    if(e.key==='ArrowDown')n=Math.min(v.length-1,i+1);else if(e.key==='ArrowUp')n=Math.max(0,i-1);else if(e.key==='Home')n=0;else if(e.key==='End')n=v.length-1;else return;
+    e.preventDefault();selected=v[n].id;render(true);document.getElementById('tab-'+selected).focus();});
+  render(false);
+
+  /* scroll progress */
+  var bar=document.getElementById('progress'),tick=false;
+  function upd(){tick=false;var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});upd();
+
 
   var addr=document.getElementById('addr'),out=document.getElementById('copied');
   function done(m){out.textContent=m;setTimeout(function(){out.textContent='';},3000);}
