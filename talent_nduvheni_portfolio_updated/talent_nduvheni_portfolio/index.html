@@ -115,6 +115,7 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 .logo{font-family:var(--serif);font-size:1.2rem;letter-spacing:.02em;margin-right:auto;color:var(--ink)}
 .logo span{color:var(--accent)}
 .nav-links{display:flex;gap:28px;font-size:.875rem;font-weight:400;color:var(--muted)}
+.menu-btn{display:none;width:36px;height:36px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink);font-size:1.2rem;cursor:pointer}
 .nav-links a{transition:color .15s;position:relative;padding-bottom:2px}
 .nav-links a::after{content:"";position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width .25s}
 .nav-links a:hover{color:var(--ink)}
@@ -130,7 +131,7 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 ───────────────────────────────────────────── */
 .hero{
   position:relative;
-  min-height:calc(100svh - 64px);
+  min-height:min(760px,calc(100svh - 64px));
   overflow:hidden;
   display:flex;align-items:center;
 }
@@ -297,7 +298,7 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 /* ─────────────────────────────────────────────
    STAT STRIP
 ───────────────────────────────────────────── */
-.stat-strip{border-block:1px solid var(--line);background:var(--bg2);padding-block:24px}
+.stat-strip{border-block:1px solid var(--line);background:var(--bg2);padding-block:16px}
 .stats{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .stat{display:flex;flex-direction:column;gap:4px}
 .stat-num{
@@ -306,7 +307,7 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 }
 .stat-num span{color:var(--accent)}
 .stat-label{font:400 .72rem var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-.tech-showcase{padding:48px 0 42px;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--accent) 10%,var(--bg2)),var(--bg2) 68%);border-bottom:1px solid var(--line)}
+.tech-showcase{padding:32px 0 28px;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--accent) 10%,var(--bg2)),var(--bg2) 68%);border-bottom:1px solid var(--line)}
 .tech-showcase-head{text-align:center;margin-bottom:24px}
 .tech-showcase-head .section-label{justify-content:center}
 .tech-showcase-head h2{font:400 clamp(1.7rem,4vw,2.5rem)/1.1 var(--serif);color:var(--ink)}
@@ -315,7 +316,7 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 .tech-track{display:flex;width:max-content;animation:techMarch 50s linear infinite}
 .tech-marquee:hover .tech-track{animation-play-state:paused}
 .tech-group{display:flex;align-items:center;gap:14px;padding:8px 7px}
-.tech-logo{min-width:132px;height:74px;padding:12px 16px;display:flex;align-items:center;gap:11px;border:1px solid color-mix(in srgb,var(--line) 80%,transparent);border-radius:8px;background:color-mix(in srgb,var(--surface) 78%,transparent);color:var(--ink);font:500 .82rem var(--sans);white-space:nowrap;transition:transform .25s,border-color .25s,background .25s}
+.tech-logo{min-width:132px;height:62px;padding:10px 14px;display:flex;align-items:center;gap:11px;border:1px solid color-mix(in srgb,var(--line) 80%,transparent);border-radius:8px;background:color-mix(in srgb,var(--surface) 78%,transparent);color:var(--ink);font:500 .82rem var(--sans);white-space:nowrap;transition:transform .25s,border-color .25s,background .25s}
 .tech-logo:hover{transform:translateY(-5px) scale(1.04);border-color:var(--accent);background:var(--surface)}
 .tech-logo img{width:30px;height:30px;object-fit:contain;filter:drop-shadow(0 0 9px color-mix(in srgb,var(--accent) 38%,transparent))}
 @keyframes techMarch{to{transform:translateX(-50%)}}
@@ -323,7 +324,7 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 /* ─────────────────────────────────────────────
    SECTION BASE
 ───────────────────────────────────────────── */
-.section{padding-block:clamp(64px,9vw,112px)}
+.section{padding-block:clamp(48px,6vw,76px)}
 .section-label{
   font:400 .7rem var(--mono);letter-spacing:.16em;
   text-transform:uppercase;color:var(--accent);
@@ -342,11 +343,11 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 ───────────────────────────────────────────── */
 .work-grid{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:2px;margin-top:48px;
+  gap:2px;margin-top:30px;
   border:1px solid var(--line);border-radius:8px;overflow:hidden;
 }
 .work-card{
-  background:var(--bg2);padding:36px;
+  background:var(--bg2);padding:26px;
   display:flex;flex-direction:column;gap:14px;
   border-right:1px solid var(--line);border-bottom:1px solid var(--line);
   transition:background .2s,transform .2s;
@@ -390,7 +391,11 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 /* ─────────────────────────────────────────────
    ALL PROJECTS
 ───────────────────────────────────────────── */
-.proj-filters{display:flex;flex-wrap:wrap;gap:8px;margin-block:36px 24px}
+.project-tools{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:28px}
+.project-search{display:block;width:min(420px,100%);margin-top:28px;padding:10px 14px;border:1px solid var(--line);border-radius:4px;background:var(--bg2);color:var(--ink);font:400 .85rem var(--sans)}
+.project-search::placeholder{color:var(--muted)}
+.project-search:focus{outline:2px solid var(--accent);outline-offset:2px}
+.proj-filters{display:flex;flex-wrap:wrap;gap:8px;margin-block:16px 20px}
 .filt-btn{
   font:400 .78rem var(--mono);padding:6px 16px;
   border-radius:3px;border:1px solid var(--line);
@@ -399,34 +404,16 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 }
 .filt-btn:hover{color:var(--ink);border-color:var(--muted)}
 .filt-btn[aria-pressed="true"]{background:var(--accent);color:var(--on-acc);border-color:var(--accent)}
-.proj-index{
-  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
-  gap:2px;border:1px solid var(--line);border-radius:8px;overflow:hidden;
-}
-.proj-list{background:var(--bg2);border-right:1px solid var(--line)}
-.proj-tab{
-  display:flex;justify-content:space-between;align-items:center;gap:12px;
-  width:100%;padding:18px 24px;border:none;border-bottom:1px solid var(--line);
-  background:transparent;color:var(--ink);font:inherit;cursor:none;
-  text-align:left;transition:background .15s,padding-left .2s;
-}
-.proj-tab:last-child{border-bottom:none}
-.proj-tab:hover{background:var(--surface);padding-left:30px}
-.proj-tab[aria-selected="true"]{background:var(--surface);border-left:2px solid var(--accent)}
-.proj-tab-name{font:400 .98rem var(--serif);color:var(--ink);line-height:1.2}
-.proj-tab[aria-selected="true"] .proj-tab-name{color:var(--accent)}
-.proj-tab-kind{font:400 .72rem var(--mono);color:var(--muted);text-align:right;white-space:nowrap}
-.proj-detail{background:var(--surface);padding:32px;position:sticky;top:72px}
-.proj-detail.swap{animation:fadeSlide .3s ease both}
-@keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.proj-detail-img{
-  border-radius:5px;overflow:hidden;aspect-ratio:16/9;
-  background:var(--bg2);margin-bottom:22px;border:1px solid var(--line);
-}
-.proj-detail-img svg{width:100%;height:100%;display:block}
-.proj-detail h3{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-bottom:6px}
-.proj-detail .proj-kind{font:400 .75rem var(--mono);color:var(--muted);margin-bottom:14px;letter-spacing:.04em}
-.proj-detail p{color:var(--muted);font-size:.93rem;line-height:1.7}
+.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.project-card{min-width:0;padding:16px;background:var(--bg2);border:1px solid var(--line);border-radius:7px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s,background .2s}
+.project-card:hover{transform:translateY(-4px);border-color:var(--accent);background:var(--surface)}
+.project-card-img{aspect-ratio:16/9;overflow:hidden;border-radius:4px;background:var(--bg);border:1px solid var(--line)}
+.project-card-img svg{width:100%;height:100%;display:block}
+.project-card h3{font:400 1.35rem/1.1 var(--serif);color:var(--ink)}
+.project-card .proj-kind{font:400 .68rem/1.4 var(--mono);color:var(--accent);letter-spacing:.03em}
+.project-card p{font-size:.86rem;line-height:1.55;color:var(--muted)}
+.project-card .work-stack{margin-top:auto;padding-top:4px}
+.proj-empty{grid-column:1/-1;padding:24px;background:var(--bg2);color:var(--muted);border:1px solid var(--line);border-radius:7px}
 .proj-count{font:400 .75rem var(--mono);color:var(--muted);letter-spacing:.04em}
 
 /* ─────────────────────────────────────────────
@@ -434,11 +421,11 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 ───────────────────────────────────────────── */
 .skills-grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:2px;margin-top:48px;
+  gap:2px;margin-top:30px;
   border:1px solid var(--line);border-radius:8px;overflow:hidden;
 }
 .skill-cat{
-  background:var(--bg2);padding:28px 32px;
+  background:var(--bg2);padding:22px 24px;
   border-right:1px solid var(--line);border-bottom:1px solid var(--line);
   transition:background .2s;
 }
@@ -463,7 +450,7 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 /* ─────────────────────────────────────────────
    BACKGROUND / EXPERIENCE
 ───────────────────────────────────────────── */
-.bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+.bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:30px}
 .bg-col-label{
   font:400 .7rem var(--mono);letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted);
@@ -489,10 +476,10 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
    CONTACT
 ───────────────────────────────────────────── */
 .contact-wrap{
-  display:grid;grid-template-columns:1fr 1fr;gap:2px;
-  border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:48px;
+  display:grid;grid-template-columns:1fr;max-width:760px;
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:30px;
 }
-.contact-left{background:var(--bg2);padding:clamp(28px,5vw,56px);border-right:1px solid var(--line)}
+.contact-left{background:var(--bg2);padding:clamp(28px,5vw,56px)}
 .contact-left h2{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.1;color:var(--ink);margin-bottom:14px}
 .contact-left p{color:var(--muted);font-size:.93rem;line-height:1.7;max-width:44ch;margin-bottom:28px}
 .email-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px}
@@ -515,39 +502,24 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 }
 .social-links a:hover{color:var(--ink);border-color:var(--line)}
 
-/* form */
-.contact-right{background:var(--surface);padding:clamp(28px,5vw,56px)}
-.contact-right h3{font-family:var(--serif);font-size:1.3rem;color:var(--ink);margin-bottom:22px}
-.cform{display:flex;flex-direction:column;gap:16px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font:400 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.field input,.field textarea{
-  background:var(--bg);border:1px solid var(--line);border-radius:4px;
-  padding:11px 14px;font:300 .95rem var(--sans);color:var(--ink);
-  outline:none;resize:vertical;font-family:inherit;
-  transition:border-color .15s,box-shadow .15s;
-}
-.field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.55}
-.field input:focus,.field textarea:focus{
-  border-color:var(--accent);
-  box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 16%,transparent);
-}
-.field input.err,.field textarea.err{border-color:#E05252}
-.err-msg{font:400 .75rem var(--mono);color:#E05252;min-height:1em}
-/* form states */
-.form-sending{opacity:.6;pointer-events:none}
-.form-success{
-  display:flex;flex-direction:column;align-items:flex-start;
-  gap:12px;padding:28px 0;min-height:220px;justify-content:center;
-}
-.form-success svg{color:var(--accent)}
-.form-success h4{font-family:var(--serif);font-size:1.3rem;color:var(--ink)}
-.form-success p{font-size:.9rem;color:var(--muted);line-height:1.65}
-.form-error-banner{
-  padding:12px 16px;border-radius:4px;
-  border:1px solid #E05252;background:color-mix(in srgb,#E05252 10%,transparent);
-  font:400 .85rem var(--mono);color:#E05252;margin-bottom:8px;
-}
+/* portfolio chatbot */
+.chat-launcher{position:fixed;right:24px;bottom:24px;z-index:30;border:0;border-radius:999px;padding:13px 18px;background:var(--accent);color:var(--on-acc);font:500 .88rem var(--sans);box-shadow:0 8px 28px #0005;cursor:pointer}
+.chat-panel{position:fixed;right:24px;bottom:84px;z-index:30;width:min(370px,calc(100vw - 32px));height:min(500px,calc(100dvh - 120px));display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--bg);box-shadow:0 18px 56px #0008}
+.chat-panel.open{display:flex}
+.chat-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:var(--bg2);border-bottom:1px solid var(--line)}
+.chat-head strong{font:400 1.1rem var(--serif)}
+.chat-head small{display:block;color:var(--muted);font-size:.75rem}
+.chat-close{width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer}
+.chat-log{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.chat-msg{max-width:88%;padding:10px 12px;border-radius:10px;background:var(--bg2);color:var(--ink);font-size:.86rem;line-height:1.5;white-space:pre-wrap}
+.chat-msg.user{align-self:flex-end;background:var(--accent);color:var(--on-acc)}
+.chat-suggestions{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 10px}
+.chat-suggestions button{border:1px solid var(--line);border-radius:99px;padding:6px 9px;background:transparent;color:var(--muted);font-size:.72rem;cursor:pointer}
+.chat-suggestions button:hover{border-color:var(--accent);color:var(--accent)}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat-input{min-width:0;flex:1;border:1px solid var(--line);border-radius:6px;padding:10px;background:var(--bg2);color:var(--ink);font:400 .86rem var(--sans)}
+.chat-send{border:0;border-radius:6px;padding:0 14px;background:var(--accent);color:var(--on-acc);font:500 .85rem var(--sans);cursor:pointer}
+@media(max-width:700px){.chat-launcher{right:16px;bottom:16px}.chat-panel{right:16px;bottom:74px}}
 
 /* ─────────────────────────────────────────────
    FOOTER
@@ -573,7 +545,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
    RESPONSIVE
 ───────────────────────────────────────────── */
 @media(max-width:960px){
-  .hero-inner{grid-template-columns:1fr;min-height:auto;padding-block:56px 48px}
+  .hero-inner{grid-template-columns:1fr;min-height:auto;padding-block:48px 40px}
   .hero-photo{max-width:280px}
   .hero-backdrop::after{background:color-mix(in srgb,var(--bg) 85%,transparent)}
   .work-card.featured{grid-template-columns:1fr}
@@ -581,19 +553,22 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
   .bg-grid{grid-template-columns:1fr;gap:32px}
   .contact-wrap{grid-template-columns:1fr}
   .contact-left{border-right:none;border-bottom:1px solid var(--line)}
-  .proj-index{grid-template-columns:1fr}
-  .proj-list{border-right:none;border-bottom:1px solid var(--line)}
-  .proj-detail{position:static}
+  .proj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:700px){
-  .nav-links{display:none}
+  .menu-btn{display:grid;place-items:center}
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;padding:14px 20px 18px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;gap:4px}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:10px 0}
   .work-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
   .work-card:nth-child(2n){border-right:none}
   .work-card.featured{grid-column:auto}
   .skills-grid{grid-template-columns:1fr}
   .stats{gap:28px}
   .tech-showcase{padding-block:36px}
   .tech-logo{min-width:118px;height:64px;padding:10px 12px}
+  .project-tools{align-items:stretch;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -621,6 +596,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
       <a href="#background">Background</a>
       <a href="#contact">Contact</a>
     </div>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
     <button class="theme-btn" id="theme-btn" type="button" aria-label="Toggle colour theme">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
@@ -875,15 +851,13 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
 <!-- ═══════════ ALL PROJECTS ═══════════ -->
 <section class="section" id="all-projects" style="padding-top:0">
   <div class="wrap">
-    <p class="section-label reveal">Complete list</p>
+    <p class="section-label reveal">Project gallery</p>
     <h2 class="section-title reveal">Every project</h2>
     <p class="section-sub reveal">Client work, coursework, experiments. <span class="proj-count" id="count"></span></p>
+    <input class="project-search" id="project-search" type="search" placeholder="Search projects or tools…" aria-label="Search projects or tools">
     <div class="proj-filters" id="proj-filters" role="group" aria-label="Filter by language"></div>
-    <div class="proj-index reveal">
-      <div class="proj-list" id="plist" role="tablist" aria-orientation="vertical" aria-label="Projects">
-        <noscript><p style="padding:20px;color:var(--muted)">Enable JavaScript to browse projects.</p></noscript>
-      </div>
-      <div class="proj-detail" id="proj-detail" role="tabpanel" aria-live="polite"></div>
+    <div class="proj-grid reveal" id="plist" aria-label="Projects" aria-live="polite">
+      <noscript><p class="proj-empty">Enable JavaScript to browse projects.</p></noscript>
     </div>
   </div>
 </section>
@@ -1032,34 +1006,6 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
           <a href="https://penned-download.tnduvheni1.workers.dev/" target="_blank" rel="noopener">Penned</a>
         </div>
       </div>
-      <div class="contact-right">
-        <h3>Send a message</h3>
-        <div id="form-area">
-          <form class="cform" id="cform" novalidate>
-            <div class="field">
-              <label for="cf-name">Name</label>
-              <input type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name">
-              <span class="err-msg" id="err-name" role="alert"></span>
-            </div>
-            <div class="field">
-              <label for="cf-email">Email</label>
-              <input type="email" id="cf-email" name="email" placeholder="you@company.com" autocomplete="email">
-              <span class="err-msg" id="err-email" role="alert"></span>
-            </div>
-            <div class="field">
-              <label for="cf-subject">Subject</label>
-              <input type="text" id="cf-subject" name="subject" placeholder="Junior dev role at…">
-              <span class="err-msg" id="err-subject" role="alert"></span>
-            </div>
-            <div class="field">
-              <label for="cf-msg">Message</label>
-              <textarea id="cf-msg" name="message" rows="5" placeholder="Tell me about the role…"></textarea>
-              <span class="err-msg" id="err-message" role="alert"></span>
-            </div>
-            <button class="btn-primary" type="submit" style="align-self:flex-start" id="cf-submit">Send message</button>
-          </form>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1072,6 +1018,24 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
     <span class="footer-copy">© <span id="year"></span> — built by hand</span>
   </div>
 </footer>
+
+<button class="chat-launcher" id="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-panel">Ask about Talent <span aria-hidden="true">✦</span></button>
+<section class="chat-panel" id="chat-panel" role="dialog" aria-label="Chat about Talent" aria-modal="false">
+  <div class="chat-head">
+    <div><strong>Ask me about Talent</strong><small>A portfolio sidekick with the facts (and a little sass).</small></div>
+    <button class="chat-close" id="chat-close" type="button" aria-label="Close chat">×</button>
+  </div>
+  <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions">
+    <div class="chat-msg">Hey! I can tell you about Talent’s projects, skills, experience, or how to get in touch. Ask away.</div>
+  </div>
+  <div class="chat-suggestions" aria-label="Suggested questions">
+    <button type="button">What has he built?</button><button type="button">What does he code in?</button><button type="button">How do I contact him?</button>
+  </div>
+  <form class="chat-form" id="chat-form">
+    <input class="chat-input" id="chat-input" type="text" placeholder="Ask a question…" aria-label="Your question" autocomplete="off" required>
+    <button class="chat-send" type="submit">Send</button>
+  </form>
+</section>
 
 <script>
 (function(){
@@ -1178,7 +1142,7 @@ var PROJECTS=[
   {id:'data',name:'Data pipelines',kind:'ETL & data processing',stack:['Python','Apache Beam','pandas','ETL'],langs:['Python'],sum:'ETL work transforming structured data with Python, Apache Beam and pandas. Part of data engineering coursework.',accent:'#5FD39A',bg:'#0f1a0f'},
   {id:'oop',name:'OOP assessments',kind:'Coursework — WeThinkCode_',stack:['Java','JUnit 5','Generics'],langs:['Java'],sum:'Java projects of increasing complexity — tournament manager to food delivery platform, using generics and tested with JUnit 5.',accent:'#f0d060',bg:'#1a1505'}
 ];
-var FILTERS=['All','Java','JavaScript','Python'],active='All',selected='penned';
+var FILTERS=['All','Java','JavaScript','Python'],active='All';
 function mk(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
 function detailSvg(p){
   var ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');
@@ -1198,61 +1162,48 @@ function detailSvg(p){
   });
   return svg;
 }
-var filtersEl=document.getElementById('proj-filters'),countEl=document.getElementById('count');
-var plist=document.getElementById('plist'),detailEl=document.getElementById('proj-detail');
-function visible(){return PROJECTS.filter(function(p){return active==='All'||p.langs.indexOf(active)>-1;});}
+var filtersEl=document.getElementById('proj-filters'),countEl=document.getElementById('count'),searchEl=document.getElementById('project-search');
+var plist=document.getElementById('plist');
+function visible(){var q=searchEl?searchEl.value.trim().toLowerCase():'';return PROJECTS.filter(function(p){return (active==='All'||p.langs.indexOf(active)>-1)&&(!q||(p.name+' '+p.kind+' '+p.sum+' '+p.stack.join(' ')).toLowerCase().indexOf(q)>-1);});}
 function renderFilters(){
   filtersEl.textContent='';
   FILTERS.forEach(function(f){
     var n=f==='All'?PROJECTS.length:PROJECTS.filter(function(p){return p.langs.indexOf(f)>-1;}).length;
     var b=mk('button','filt-btn',f+' ('+n+')');b.type='button';b.setAttribute('aria-pressed',String(f===active));
-    b.addEventListener('click',function(){active=f;var v=visible();if(!v.some(function(p){return p.id===selected;}))selected=v[0].id;render();document.getElementById('all-projects').scrollIntoView({behavior:'smooth',block:'start'});});
+    b.addEventListener('click',function(){active=f;render();document.getElementById('all-projects').scrollIntoView({behavior:'smooth',block:'start'});});
     filtersEl.appendChild(b);
   });
 }
 function renderList(){
   var ns2=plist.querySelector('noscript');plist.textContent='';if(ns2)plist.appendChild(ns2);
-  visible().forEach(function(p){
-    var b=mk('button','proj-tab');b.type='button';b.id='ptab-'+p.id;
-    b.setAttribute('role','tab');b.setAttribute('aria-selected',String(p.id===selected));
-    b.setAttribute('aria-controls','proj-detail');b.tabIndex=p.id===selected?0:-1;b.setAttribute('data-id',p.id);
-    b.appendChild(mk('span','proj-tab-name',p.name));b.appendChild(mk('span','proj-tab-kind',p.kind));
-    plist.appendChild(b);
+  var shown=visible();if(!shown.length){plist.appendChild(mk('p','proj-empty','No projects match that search.'));return;}
+  shown.forEach(function(p){
+    var card=mk('article','project-card');
+    var preview=mk('div','project-card-img');preview.appendChild(detailSvg(p));card.appendChild(preview);
+    card.appendChild(mk('h3',null,p.name));card.appendChild(mk('p','proj-kind',p.kind));card.appendChild(mk('p',null,p.sum));
+    var stack=mk('div','work-stack');p.stack.forEach(function(s){stack.appendChild(mk('span','chip',s));});card.appendChild(stack);
+    if(p.url){var a=mk('a','work-link',p.cta+' →');a.href=p.url;a.target='_blank';a.rel='noopener noreferrer';card.appendChild(a);}
+    plist.appendChild(card);
   });
 }
-function renderDetail(swap){
-  var p=PROJECTS.filter(function(x){return x.id===selected;})[0];if(!p)return;
-  detailEl.setAttribute('aria-labelledby','ptab-'+p.id);detailEl.textContent='';
-  var imgW=mk('div','proj-detail-img');imgW.appendChild(detailSvg(p));detailEl.appendChild(imgW);
-  detailEl.appendChild(mk('h3',null,p.name));
-  detailEl.appendChild(mk('p','proj-kind',p.kind));
-  detailEl.appendChild(mk('p',null,p.sum));
-  var stk=mk('div','work-stack');p.stack.forEach(function(s){stk.appendChild(mk('span','chip',s));});detailEl.appendChild(stk);
-  if(p.url){var a=mk('a','work-link',p.cta+' →');a.href=p.url;a.target='_blank';a.rel='noopener';detailEl.appendChild(a);}
-  if(swap){detailEl.classList.remove('swap');void detailEl.offsetWidth;detailEl.classList.add('swap');}
-}
-function render(swap){countEl.textContent=visible().length+' of '+PROJECTS.length;renderFilters();renderList();renderDetail(swap);}
-plist.addEventListener('click',function(e){
-  var b=e.target.closest('.proj-tab');if(!b)return;
-  selected=b.getAttribute('data-id');render(true);b.focus();
-  if(matchMedia('(max-width:960px)').matches)detailEl.scrollIntoView({block:'nearest',behavior:'smooth'});
-});
-plist.addEventListener('keydown',function(e){
-  var v=visible(),i=v.map(function(p){return p.id;}).indexOf(selected),n=i;
-  if(e.key==='ArrowDown')n=Math.min(v.length-1,i+1);
-  else if(e.key==='ArrowUp')n=Math.max(0,i-1);
-  else if(e.key==='Home')n=0;else if(e.key==='End')n=v.length-1;else return;
-  e.preventDefault();selected=v[n].id;render(true);document.getElementById('ptab-'+selected).focus();
-});
+function render(){var v=visible();countEl.textContent=v.length+' of '+PROJECTS.length;renderFilters();renderList();}
+if(searchEl)searchEl.addEventListener('input',render);
 render(false);
 
 /* skill → filter */
 document.getElementById('skills-grid').addEventListener('click',function(e){
   var row=e.target.closest('.skill-row.clickable');if(!row)return;
   var f=row.getAttribute('data-filter');if(!f)return;
-  active=f;var v=visible();if(!v.some(function(p){return p.id===selected;}))selected=v[0].id;
+  active=f;
   render();document.getElementById('all-projects').scrollIntoView({behavior:'smooth',block:'start'});
 });
+
+/* ── mobile navigation ── */
+var menuBtn=document.getElementById('menu-btn'),navLinks=document.getElementById('nav-links');
+if(menuBtn&&navLinks){
+  menuBtn.addEventListener('click',function(){var open=menuBtn.getAttribute('aria-expanded')!=='true';menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?'Close navigation':'Open navigation');menuBtn.textContent=open?'×':'☰';navLinks.classList.toggle('open',open);});
+  navLinks.addEventListener('click',function(e){if(e.target.closest('a')){menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Open navigation');menuBtn.textContent='☰';navLinks.classList.remove('open');}});
+}
 
 /* ── read progress ── */
 var readBar=document.getElementById('read-bar'),rafP=false;
@@ -1282,81 +1233,6 @@ document.getElementById('copy-btn').addEventListener('click',function(){
   function fallback(){var r=document.createRange();r.selectNodeContents(emailEl);var s=getSelection();s.removeAllRanges();s.addRange(r);showStatus('Press Ctrl+C / Cmd+C to copy.');}
 });
 
-/* ── contact form — Formspree (real email delivery) ── */
-var form=document.getElementById('cform');
-if(form){
-  /* ⬇ Replace YOUR_FORM_ID with your Formspree endpoint ID from formspree.io/new */
-  var FORMSPREE_ENDPOINT='https://formspree.io/f/YOUR_FORM_ID';
-  function val(id){return document.getElementById(id).value.trim();}
-  function setErr(id,msg){
-    var inp=document.getElementById(id);
-    var errId='err-'+id.replace('cf-','').replace('msg','message');
-    var err=document.getElementById(errId);
-    if(inp)inp.classList.toggle('err',!!msg);
-    if(err)err.textContent=msg||'';
-  }
-  function clearErrs(){['cf-name','cf-email','cf-subject','cf-msg'].forEach(function(id){setErr(id,'');});}
-  function validate(){
-    var ok=true;
-    if(!val('cf-name')){setErr('cf-name','Name is required.');ok=false;}
-    var em=val('cf-email');
-    if(!em){setErr('cf-email','Email is required.');ok=false;}
-    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){setErr('cf-email','Enter a valid email.');ok=false;}
-    if(!val('cf-subject')){setErr('cf-subject','Subject is required.');ok=false;}
-    if(!val('cf-msg')){setErr('cf-msg','Message is required.');ok=false;}
-    return ok;
-  }
-  form.addEventListener('submit',function(e){
-    e.preventDefault();clearErrs();
-    if(!validate())return;
-    var submitBtn=document.getElementById('cf-submit');
-    submitBtn.textContent='Sending…';submitBtn.disabled=true;form.classList.add('form-sending');
-    var area=document.getElementById('form-area');
-    /* Remove old error banner if present */
-    var old=area.querySelector('.form-error-banner');if(old)old.remove();
-
-    var data={name:val('cf-name'),email:val('cf-email'),subject:val('cf-subject'),message:val('cf-msg')};
-
-    /* If Formspree ID not set yet, fall back to mailto gracefully */
-    if(FORMSPREE_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){
-      var body=encodeURIComponent('From: '+data.name+' <'+data.email+'>\n\n'+data.message);
-      var mailto='mailto:Tnduvheni1@gmail.com?subject='+encodeURIComponent(data.subject)+'&body='+body;
-      area.innerHTML='<div class="form-success">'
-        +'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>'
-        +'<h4>Almost there</h4>'
-        +'<p>To enable direct sending, add your Formspree ID to the code. For now, your mail app will open with everything pre-filled.</p>'
-        +'<a class="btn-primary" href="'+mailto+'">Open mail app</a>'
-        +'</div>';
-      return;
-    }
-
-    fetch(FORMSPREE_ENDPOINT,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(data)
-    }).then(function(r){return r.json().then(function(j){return{ok:r.ok,json:j};});})
-    .then(function(res){
-      if(res.ok){
-        area.innerHTML='<div class="form-success">'
-          +'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>'
-          +'<h4>Message sent</h4>'
-          +'<p>Thanks — I\'ll get back to you within a day.</p>'
-          +'</div>';
-      } else {
-        form.classList.remove('form-sending');submitBtn.textContent='Send message';submitBtn.disabled=false;
-        var banner=document.createElement('div');banner.className='form-error-banner';
-        banner.textContent=res.json.error||'Something went wrong. Try emailing directly.';
-        area.insertBefore(banner,form);
-      }
-    }).catch(function(){
-      form.classList.remove('form-sending');submitBtn.textContent='Send message';submitBtn.disabled=false;
-      var banner=document.createElement('div');banner.className='form-error-banner';
-      banner.textContent='Could not send. Try emailing Tnduvheni1@gmail.com directly.';
-      area.insertBefore(banner,form);
-    });
-  });
-}
-
 /* ── photo flip (touch) ── */
 var photo=document.getElementById('hero-photo'),hint=document.getElementById('photo-hint');
 if(photo&&hint){
@@ -1367,6 +1243,30 @@ if(photo&&hint){
     }
   });
 }
+
+/* ── portfolio Q&A sidekick ── */
+var chatLauncher=document.getElementById('chat-launcher'),chatPanel=document.getElementById('chat-panel');
+var chatClose=document.getElementById('chat-close'),chatForm=document.getElementById('chat-form');
+var chatInput=document.getElementById('chat-input'),chatLog=document.getElementById('chat-log');
+function setChatOpen(open){chatPanel.classList.toggle('open',open);chatLauncher.setAttribute('aria-expanded',String(open));if(open)chatInput.focus();else chatLauncher.focus();}
+chatLauncher.addEventListener('click',function(){setChatOpen(!chatPanel.classList.contains('open'));});
+chatClose.addEventListener('click',function(){setChatOpen(false);});
+function chatMessage(text,who){var m=mk('div','chat-msg'+(who==='user'?' user':''),text);chatLog.appendChild(m);chatLog.scrollTop=chatLog.scrollHeight;}
+function answerAboutTalent(question){
+  var q=question.toLowerCase(),p=PROJECTS.filter(function(item){return q.indexOf(item.name.toLowerCase())>-1;})[0];
+  if(p)return p.name+' is '+p.kind.toLowerCase()+'. '+p.sum+' The stack: '+p.stack.join(', ')+'.'+(p.url?' Try it here: '+p.url:'');
+  if(/hello|hi\b|hey\b|sup\b/.test(q))return 'Hey! I’m Talent’s tiny portfolio sidekick. Ask me about his work, skills, experience, or contact details. I promise fewer popups than a 2004 website.';
+  if(/contact|email|reach|hire|available/.test(q))return 'Talent is open to junior developer roles, backend positions, graduate programmes, and IT-adjacent work. Email him at Tnduvheni1@gmail.com — he aims to reply within a day. No carrier pigeon required.';
+  if(/skill|language|stack|technology|tech|code|program/.test(q))return 'Java, Python, JavaScript and TypeScript are the main languages. He also works with Spring Boot, REST APIs, WebSockets, React, React Native, MySQL, Apache Beam and pandas. A respectable toolbox; no actual toolbox required.';
+  if(/experience|work|job|career|suvwey|health/.test(q))return 'Talent is a Software Developer at Suvwey Enterprise, building features for live web apps. Before that, he was an IT Technician with South Africa’s Department of Health, keeping systems and people moving.';
+  if(/education|study|college|wethink|qualification|diploma/.test(q))return 'He is studying software development at WeThinkCode_ and holds a Diploma in IT Management from IIE Rosebank College. So the code has both engineering practice and management context.';
+  if(/project|built|build|portfolio|app|which/.test(q))return 'There are '+PROJECTS.length+' projects here, including Penned (messaging and marketplace), Relay (mobile chat and payments), OrgChat API, Robot World, and data pipelines. Ask me about one by name and I’ll give you the details.';
+  if(/who|name|about you|about talent/.test(q))return 'Talent Nduvheni is a South African software developer and IT technician who builds backend systems and web apps. Also the human this chatbot is shamelessly enthusiastic about.';
+  return 'I know the portfolio facts: projects, tools, experience, education, and contact details. Try one of those topics — my crystal ball is still in the shop.';
+}
+chatForm.addEventListener('submit',function(e){e.preventDefault();var question=chatInput.value.trim();if(!question)return;chatMessage(question,'user');chatInput.value='';window.setTimeout(function(){chatMessage(answerAboutTalent(question),'bot');},220);});
+document.querySelectorAll('.chat-suggestions button').forEach(function(button){button.addEventListener('click',function(){chatInput.value=button.textContent;chatForm.requestSubmit();});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&chatPanel.classList.contains('open'))setChatOpen(false);});
 
 })();
 </script>
