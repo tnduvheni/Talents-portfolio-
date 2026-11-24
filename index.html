@@ -1042,15 +1042,20 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
 'use strict';
 
 /* ── theme ── */
-var root=document.documentElement;
+var root=document.documentElement,themeColor=document.querySelector('meta[name="theme-color"]');
 var themeBtn=document.getElementById('theme-btn');
+function syncThemeColor(){if(themeColor)themeColor.setAttribute('content',getComputedStyle(root).getPropertyValue('--bg').trim());}
 try{var s=localStorage.getItem('tn-theme');if(s)root.setAttribute('data-theme',s);}catch(e){}
+syncThemeColor();
 themeBtn.addEventListener('click',function(){
   var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
   var next=cur==='dark'?'light':'dark';
   root.setAttribute('data-theme',next);
   try{localStorage.setItem('tn-theme',next);}catch(e){}
+  syncThemeColor();
 });
+var systemTheme=matchMedia('(prefers-color-scheme:dark)');
+if(systemTheme.addEventListener)systemTheme.addEventListener('change',function(){try{if(!localStorage.getItem('tn-theme'))syncThemeColor();}catch(e){syncThemeColor();}});
 document.getElementById('year').textContent=new Date().getFullYear();
 
 /* ── custom cursor ── */
