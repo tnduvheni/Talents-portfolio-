@@ -218,6 +218,14 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 }
 .hero-bio strong{color:var(--ink);font-weight:400}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;animation:fadeUp .6s .28s both}
+.hero-social{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;margin-top:24px;animation:fadeUp .6s .34s both}
+.hero-social-label{font:400 .68rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.hero-social a{display:inline-flex;align-items:center;gap:7px;color:var(--ink);font-size:.875rem;border-bottom:1px solid var(--line);padding:3px 0;transition:color .15s,border-color .15s}
+.hero-social a:hover{color:var(--accent);border-color:var(--accent)}
+.json-sample{margin-top:36px;padding:22px 24px;border:1px solid var(--line);border-radius:6px;background:var(--bg2)}
+.json-sample h3{font-family:var(--serif);font-size:1.35rem;margin-bottom:6px}
+.json-sample p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.json-sample pre{margin:0;padding:16px;overflow-x:auto;border-radius:4px;background:var(--bg);color:var(--accent);font:400 .82rem/1.7 var(--mono)}
 
 /* ─────────────────────────────────────────────
    BUTTONS
@@ -298,6 +306,19 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 }
 .stat-num span{color:var(--accent)}
 .stat-label{font:400 .72rem var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.tech-showcase{padding:48px 0 42px;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--accent) 10%,var(--bg2)),var(--bg2) 68%);border-bottom:1px solid var(--line)}
+.tech-showcase-head{text-align:center;margin-bottom:24px}
+.tech-showcase-head .section-label{justify-content:center}
+.tech-showcase-head h2{font:400 clamp(1.7rem,4vw,2.5rem)/1.1 var(--serif);color:var(--ink)}
+.tech-showcase-head p{margin:8px auto 0;color:var(--muted);font-size:.9rem}
+.tech-marquee{position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tech-track{display:flex;width:max-content;animation:techMarch 50s linear infinite}
+.tech-marquee:hover .tech-track{animation-play-state:paused}
+.tech-group{display:flex;align-items:center;gap:14px;padding:8px 7px}
+.tech-logo{min-width:132px;height:74px;padding:12px 16px;display:flex;align-items:center;gap:11px;border:1px solid color-mix(in srgb,var(--line) 80%,transparent);border-radius:8px;background:color-mix(in srgb,var(--surface) 78%,transparent);color:var(--ink);font:500 .82rem var(--sans);white-space:nowrap;transition:transform .25s,border-color .25s,background .25s}
+.tech-logo:hover{transform:translateY(-5px) scale(1.04);border-color:var(--accent);background:var(--surface)}
+.tech-logo img{width:30px;height:30px;object-fit:contain;filter:drop-shadow(0 0 9px color-mix(in srgb,var(--accent) 38%,transparent))}
+@keyframes techMarch{to{transform:translateX(-50%)}}
 
 /* ─────────────────────────────────────────────
    SECTION BASE
@@ -571,11 +592,14 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
   .work-card.featured{grid-column:auto}
   .skills-grid{grid-template-columns:1fr}
   .stats{gap:28px}
+  .tech-showcase{padding-block:36px}
+  .tech-logo{min-width:118px;height:64px;padding:10px 12px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal,.reveal-l,.reveal-r{opacity:1;transform:none}
+  .tech-track{animation:none;transform:none}
 }
 </style>
 </head>
@@ -629,6 +653,12 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
           <a class="btn-primary" href="#work">See my projects</a>
           <a class="btn-outline" href="#contact">Get in touch</a>
         </div>
+        <div class="hero-social" aria-label="Developer profiles">
+          <span class="hero-social-label">Find me on</span>
+          <a href="https://github.com/tnduvheni" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://gitlab.com/tandujhb025" target="_blank" rel="noopener noreferrer" aria-label="GitLab profile (opens in a new tab)">GitLab <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/tnduvheni/Talents-portfolio-" target="_blank" rel="noopener noreferrer" aria-label="Portfolio source code repository (opens in a new tab)">Portfolio source <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
 
       <div>
@@ -661,6 +691,44 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
     </div>
   </div>
 </div>
+
+<section class="tech-showcase" aria-labelledby="tech-showcase-title">
+  <div class="tech-showcase-head">
+    <p class="section-label">Tools of the trade</p>
+    <h2 id="tech-showcase-title">My technology stack</h2>
+    <p>Languages, frameworks and tools I have worked with.</p>
+  </div>
+  <div class="tech-marquee">
+    <div class="tech-track">
+      <div class="tech-group">
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/java/ED8B00" alt="" loading="lazy">Java</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/python/3776AB" alt="" loading="lazy">Python</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="" loading="lazy">JavaScript</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="" loading="lazy">TypeScript</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="" loading="lazy">React</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/spring/6DB33F" alt="" loading="lazy">Spring Boot</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="" loading="lazy">MySQL</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/apachemaven/C71A36" alt="" loading="lazy">Maven</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/expo/FFFFFF" alt="" loading="lazy">Expo</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="" loading="lazy">Cloudflare</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/apachebeam/FF6A00" alt="" loading="lazy">Apache Beam</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/pandas/150458" alt="" loading="lazy">pandas</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="" loading="lazy">HTML5</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/css/663399" alt="" loading="lazy">CSS</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/git/F05032" alt="" loading="lazy">Git</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/github/FFFFFF" alt="" loading="lazy">GitHub</div>
+        <div class="tech-logo"><img src="https://cdn.simpleicons.org/gitlab/FC6D26" alt="" loading="lazy">GitLab</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function(){
+    var track=document.querySelector('.tech-track');
+    var group=track&&track.querySelector('.tech-group');
+    if(track&&group){var clone=group.cloneNode(true);clone.setAttribute('aria-hidden','true');track.appendChild(clone);}
+  })();
+</script>
 
 <!-- ═══════════ WORK ═══════════ -->
 <section class="section" id="work">
@@ -883,6 +951,19 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
           <span class="skill-row">Network basics</span>
         </div>
       </div>
+    </div>
+    <div class="json-sample reveal">
+      <h3>Working with JSON</h3>
+      <p>Example structured API data for a project, with nested fields and an array of technologies.</p>
+      <pre><code>{
+  "project": "OrgChat API",
+  "type": "backend",
+  "technologies": ["Java", "Spring Boot", "MySQL"],
+  "features": {
+    "authentication": "JWT",
+    "messaging": "WebSocket"
+  }
+}</code></pre>
     </div>
   </div>
 </section>
