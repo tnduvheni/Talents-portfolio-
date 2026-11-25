@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#120E0A">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23120E0A'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23F5A623'%3ETN%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#18352B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2318352B'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23C66A3D'%3ETN%3C/text%3E%3C/svg%3E">
 <title>Talent Nduvheni — The software Developer</title>
 <meta name="description" content="Talent Nduvheni — Software Developer and IT Technician based in South Africa. Java, Spring Boot, Python, React.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,39 +15,19 @@
    TOKENS
 ───────────────────────────────────────────── */
 :root {
-  --bg:       #120E0A;
-  --bg2:      #1A1510;
-  --surface:  #221C15;
-  --ink:      #F0E8DC;
-  --muted:    #8C7A65;
-  --line:     #2E2318;
-  --accent:   #F5A623;
-  --on-acc:   #120E0A;
-  --cool:     #5AACF2;
+  --bg:       #18352B;
+  --bg2:      #204236;
+  --surface:  #285142;
+  --ink:      #F1E8D2;
+  --muted:    #B4B99F;
+  --line:     #3B5C4B;
+  --accent:   #D47A4F;
+  --on-acc:   #18352B;
+  --cool:     #A7B98B;
   --serif:    'DM Serif Display', Georgia, serif;
   --sans:     'DM Sans', system-ui, sans-serif;
   --mono:     'JetBrains Mono', ui-monospace, monospace;
   color-scheme: dark;
-}
-[data-theme="light"] {
-  --bg:      #FAF6F0;
-  --bg2:     #F0EAE0;
-  --surface: #FFFFFF;
-  --ink:     #1A1208;
-  --muted:   #7A6248;
-  --line:    #DDD0BE;
-  --accent:  #C47A00;
-  --on-acc:  #FFFFFF;
-  --cool:    #005C9E;
-  color-scheme: light;
-}
-@media (prefers-color-scheme:light){
-  :root:not([data-theme="dark"]){
-    --bg:#FAF6F0; --bg2:#F0EAE0; --surface:#FFFFFF;
-    --ink:#1A1208; --muted:#7A6248; --line:#DDD0BE;
-    --accent:#C47A00; --on-acc:#FFFFFF; --cool:#005C9E;
-    color-scheme:light;
-  }
 }
 
 /* ─────────────────────────────────────────────
@@ -122,8 +102,6 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 .nav-links a:hover::after{width:100%}
 .nav-links a[aria-current="true"]{color:var(--accent)}
 .nav-links a[aria-current="true"]::after{width:100%}
-.theme-btn{width:36px;height:36px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--muted);display:grid;place-items:center;cursor:none;transition:color .15s,border-color .15s;flex-shrink:0}
-.theme-btn:hover{color:var(--ink);border-color:var(--muted)}
 .read-bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left}
 
 /* ─────────────────────────────────────────────
@@ -343,19 +321,18 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 ───────────────────────────────────────────── */
 .work-grid{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:2px;margin-top:30px;
-  border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  gap:14px;margin-top:24px;
 }
+#work{position:relative;isolation:isolate;background:#F1E8D2 url("images-8.jpeg") center top/447px 447px no-repeat}
+#work .section-label,#work .section-title,#work .section-sub{color:#18352B}
 .work-card{
-  background:var(--bg2);padding:26px;
+  background:var(--bg2);padding:20px;
   display:flex;flex-direction:column;gap:14px;
-  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  border:1px solid var(--line);border-radius:7px;
   transition:background .2s,transform .2s;
   position:relative;overflow:hidden;
   /* tilt JS applied inline */
 }
-.work-card:nth-child(2n){border-right:none}
-.work-card:nth-last-child(-n+2){border-bottom:none}
 .work-card:hover{background:var(--surface)}
 .work-card-img{
   border-radius:5px;overflow:hidden;aspect-ratio:16/9;
@@ -381,12 +358,7 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 }
 .work-link:hover{gap:12px}
 /* featured span full width */
-.work-card.featured{
-  grid-column:1/-1;display:grid;
-  grid-template-columns:1fr 1fr;gap:40px;
-  align-items:center;border-right:none;
-}
-.work-card.featured .work-title{font-size:clamp(1.8rem,3.5vw,2.4rem)}
+.work-card.featured{grid-column:auto;display:flex;gap:14px;align-items:stretch}
 
 /* ─────────────────────────────────────────────
    ALL PROJECTS
@@ -404,16 +376,24 @@ nav{height:64px;display:flex;align-items:center;gap:32px}
 }
 .filt-btn:hover{color:var(--ink);border-color:var(--muted)}
 .filt-btn[aria-pressed="true"]{background:var(--accent);color:var(--on-acc);border-color:var(--accent)}
-.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.proj-carousel{position:relative}
+.proj-grid{display:flex;gap:16px;margin-top:24px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px 2px 12px}
+.proj-grid::-webkit-scrollbar{display:none}
+.project-card{flex:0 0 calc((100% - 32px)/3);scroll-snap-align:start}
+.proj-controls{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.proj-nav{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--bg2);color:var(--ink);font-size:1.15rem;cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .2s}
+.proj-nav:hover:not(:disabled){background:var(--accent);border-color:var(--accent);color:var(--on-acc);transform:translateY(-2px)}
+.proj-nav:disabled{opacity:.4;cursor:default}
 .project-card{min-width:0;padding:16px;background:var(--bg2);border:1px solid var(--line);border-radius:7px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s,background .2s}
 .project-card:hover{transform:translateY(-4px);border-color:var(--accent);background:var(--surface)}
 .project-card-img{aspect-ratio:16/9;overflow:hidden;border-radius:4px;background:var(--bg);border:1px solid var(--line)}
 .project-card-img svg{width:100%;height:100%;display:block}
+.project-card-img img{width:100%;height:100%;display:block;object-fit:cover}
 .project-card h3{font:400 1.35rem/1.1 var(--serif);color:var(--ink)}
 .project-card .proj-kind{font:400 .68rem/1.4 var(--mono);color:var(--accent);letter-spacing:.03em}
 .project-card p{font-size:.86rem;line-height:1.55;color:var(--muted)}
 .project-card .work-stack{margin-top:auto;padding-top:4px}
-.proj-empty{grid-column:1/-1;padding:24px;background:var(--bg2);color:var(--muted);border:1px solid var(--line);border-radius:7px}
+.proj-empty{flex:0 0 100%;padding:24px;background:var(--bg2);color:var(--muted);border:1px solid var(--line);border-radius:7px}
 .proj-count{font:400 .75rem var(--mono);color:var(--muted);letter-spacing:.04em}
 
 /* ─────────────────────────────────────────────
@@ -548,12 +528,10 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
   .hero-inner{grid-template-columns:1fr;min-height:auto;padding-block:48px 40px}
   .hero-photo{max-width:280px}
   .hero-backdrop::after{background:color-mix(in srgb,var(--bg) 85%,transparent)}
-  .work-card.featured{grid-template-columns:1fr}
-  .work-card.featured .work-card-img{order:-1}
   .bg-grid{grid-template-columns:1fr;gap:32px}
   .contact-wrap{grid-template-columns:1fr}
   .contact-left{border-right:none;border-bottom:1px solid var(--line)}
-  .proj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-card{flex-basis:calc((100% - 16px)/2)}
 }
 @media(max-width:700px){
   .menu-btn{display:grid;place-items:center}
@@ -561,8 +539,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
   .nav-links.open{display:flex}
   .nav-links a{padding:10px 0}
   .work-grid{grid-template-columns:1fr}
-  .proj-grid{grid-template-columns:1fr}
-  .work-card:nth-child(2n){border-right:none}
+  .project-card{flex-basis:100%}
   .work-card.featured{grid-column:auto}
   .skills-grid{grid-template-columns:1fr}
   .stats{gap:28px}
@@ -572,6 +549,7 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .proj-grid{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal,.reveal-l,.reveal-r{opacity:1;transform:none}
   .tech-track{animation:none;transform:none}
@@ -597,9 +575,6 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
       <a href="#contact">Contact</a>
     </div>
     <button class="menu-btn" id="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <button class="theme-btn" id="theme-btn" type="button" aria-label="Toggle colour theme">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
   </nav>
   <div class="read-bar" id="read-bar" aria-hidden="true"></div>
 </header>
@@ -819,20 +794,13 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
       <article class="work-card js-tilt">
         <div class="work-card-img">
           <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-label="Hotel Booking System UI">
-            <rect width="320" height="180" fill="#12101e"/>
-            <rect x="20" y="12" width="280" height="156" rx="6" fill="#1a1830" stroke="#2a2645" stroke-width="1"/>
-            <rect x="20" y="12" width="280" height="28" rx="6" fill="#2a2645"/>
-            <text x="34" y="30" font-family="monospace" font-size="9" fill="#c0a0f0" font-weight="700">Hotel Booking System</text>
-            <text x="40" y="62" font-family="monospace" font-size="7" fill="#8060b0">Guest name</text>
-            <rect x="34" y="66" width="120" height="16" rx="3" fill="#100d20" stroke="#3a2860" stroke-width="1"/>
-            <text x="40" y="77" font-family="monospace" font-size="7" fill="#c0a0f0">Thabo Nkosi</text>
-            <text x="40" y="106" font-family="monospace" font-size="7" fill="#8060b0">Room</text>
-            <rect x="34" y="110" width="80" height="16" rx="3" fill="#100d20" stroke="#3a2860" stroke-width="1"/>
-            <text x="40" y="121" font-family="monospace" font-size="7" fill="#c0a0f0">204 · Deluxe</text>
-            <text x="136" y="106" font-family="monospace" font-size="7" fill="#8060b0">Check-in</text>
-            <rect x="130" y="110" width="80" height="16" rx="3" fill="#100d20" stroke="#3a2860" stroke-width="1"/>
-            <text x="136" y="121" font-family="monospace" font-size="7" fill="#c0a0f0">15 Jan 2026</text>
-            <rect x="34" y="142" width="80" height="20" rx="4" fill="#c0a0f0"/>
+            <rect width="320" height="180" fill="#12101e"/><rect x="20" y="12" width="280" height="156" rx="6" fill="#1a1830" stroke="#2a2645"/>
+            <rect x="20" y="12" width="280" height="28" rx="6" fill="#2a2645"/><text x="34" y="30" font-family="monospace" font-size="9" fill="#c0a0f0" font-weight="700">Hotel Booking System</text>
+            <text x="40" y="62" font-family="monospace" font-size="7" fill="#8060b0">Guest name</text><rect x="34" y="66" width="120" height="16" rx="3" fill="#100d20" stroke="#3a2860"/>
+            <text x="40" y="77" font-family="monospace" font-size="7" fill="#c0a0f0">Thabo Nkosi</text><text x="40" y="106" font-family="monospace" font-size="7" fill="#8060b0">Room</text>
+            <rect x="34" y="110" width="80" height="16" rx="3" fill="#100d20" stroke="#3a2860"/><text x="40" y="121" font-family="monospace" font-size="7" fill="#c0a0f0">204 · Deluxe</text>
+            <text x="136" y="106" font-family="monospace" font-size="7" fill="#8060b0">Check-in</text><rect x="130" y="110" width="80" height="16" rx="3" fill="#100d20" stroke="#3a2860"/>
+            <text x="136" y="121" font-family="monospace" font-size="7" fill="#c0a0f0">15 Jan 2026</text><rect x="34" y="142" width="80" height="20" rx="4" fill="#c0a0f0"/>
             <text x="74" y="156" font-family="monospace" font-size="8" text-anchor="middle" fill="#100d20" font-weight="700">Book Room</text>
           </svg>
         </div>
@@ -856,8 +824,14 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
     <p class="section-sub reveal">Client work, coursework, experiments. <span class="proj-count" id="count"></span></p>
     <input class="project-search" id="project-search" type="search" placeholder="Search projects or tools…" aria-label="Search projects or tools">
     <div class="proj-filters" id="proj-filters" role="group" aria-label="Filter by language"></div>
-    <div class="proj-grid reveal" id="plist" aria-label="Projects" aria-live="polite">
-      <noscript><p class="proj-empty">Enable JavaScript to browse projects.</p></noscript>
+    <div class="proj-carousel">
+      <div class="proj-grid reveal" id="plist" aria-label="Projects" aria-live="polite">
+        <noscript><p class="proj-empty">Enable JavaScript to browse projects.</p></noscript>
+      </div>
+      <div class="proj-controls" aria-label="Project carousel controls">
+        <button class="proj-nav" id="proj-prev" type="button" aria-label="Previous projects">‹</button>
+        <button class="proj-nav" id="proj-next" type="button" aria-label="Next projects">›</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1041,21 +1015,6 @@ footer{border-top:1px solid var(--line);padding-block:28px 44px}
 (function(){
 'use strict';
 
-/* ── theme ── */
-var root=document.documentElement,themeColor=document.querySelector('meta[name="theme-color"]');
-var themeBtn=document.getElementById('theme-btn');
-function syncThemeColor(){if(themeColor)themeColor.setAttribute('content',getComputedStyle(root).getPropertyValue('--bg').trim());}
-try{var s=localStorage.getItem('tn-theme');if(s)root.setAttribute('data-theme',s);}catch(e){}
-syncThemeColor();
-themeBtn.addEventListener('click',function(){
-  var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-  var next=cur==='dark'?'light':'dark';
-  root.setAttribute('data-theme',next);
-  try{localStorage.setItem('tn-theme',next);}catch(e){}
-  syncThemeColor();
-});
-var systemTheme=matchMedia('(prefers-color-scheme:dark)');
-if(systemTheme.addEventListener)systemTheme.addEventListener('change',function(){try{if(!localStorage.getItem('tn-theme'))syncThemeColor();}catch(e){syncThemeColor();}});
 document.getElementById('year').textContent=new Date().getFullYear();
 
 /* ── custom cursor ── */
@@ -1168,7 +1127,12 @@ function detailSvg(p){
   return svg;
 }
 var filtersEl=document.getElementById('proj-filters'),countEl=document.getElementById('count'),searchEl=document.getElementById('project-search');
-var plist=document.getElementById('plist');
+var plist=document.getElementById('plist'),prevProjects=document.getElementById('proj-prev'),nextProjects=document.getElementById('proj-next');
+function updateProjectControls(){if(!plist||!prevProjects||!nextProjects)return;var max=plist.scrollWidth-plist.clientWidth;prevProjects.disabled=plist.scrollLeft<=2;nextProjects.disabled=plist.scrollLeft>=max-2||max<=2;}
+if(prevProjects)prevProjects.addEventListener('click',function(){plist.scrollBy({left:-plist.clientWidth*.85,behavior:'smooth'});});
+if(nextProjects)nextProjects.addEventListener('click',function(){plist.scrollBy({left:plist.clientWidth*.85,behavior:'smooth'});});
+if(plist)plist.addEventListener('scroll',updateProjectControls,{passive:true});
+window.addEventListener('resize',updateProjectControls);
 function visible(){var q=searchEl?searchEl.value.trim().toLowerCase():'';return PROJECTS.filter(function(p){return (active==='All'||p.langs.indexOf(active)>-1)&&(!q||(p.name+' '+p.kind+' '+p.sum+' '+p.stack.join(' ')).toLowerCase().indexOf(q)>-1);});}
 function renderFilters(){
   filtersEl.textContent='';
@@ -1181,7 +1145,8 @@ function renderFilters(){
 }
 function renderList(){
   var ns2=plist.querySelector('noscript');plist.textContent='';if(ns2)plist.appendChild(ns2);
-  var shown=visible();if(!shown.length){plist.appendChild(mk('p','proj-empty','No projects match that search.'));return;}
+  plist.scrollLeft=0;
+  var shown=visible();if(!shown.length){plist.appendChild(mk('p','proj-empty','No projects match that search.'));requestAnimationFrame(updateProjectControls);return;}
   shown.forEach(function(p){
     var card=mk('article','project-card');
     var preview=mk('div','project-card-img');preview.appendChild(detailSvg(p));card.appendChild(preview);
@@ -1190,6 +1155,7 @@ function renderList(){
     if(p.url){var a=mk('a','work-link',p.cta+' →');a.href=p.url;a.target='_blank';a.rel='noopener noreferrer';card.appendChild(a);}
     plist.appendChild(card);
   });
+  requestAnimationFrame(updateProjectControls);
 }
 function render(){var v=visible();countEl.textContent=v.length+' of '+PROJECTS.length;renderFilters();renderList();}
 if(searchEl)searchEl.addEventListener('input',render);
